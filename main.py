@@ -17,8 +17,7 @@ def convertFromFormat1(jsonObject):
 
     # Convert timestamp from milliseconds to ISO format
     timestamp = jsonObject["timestamp"] / 1000  # Divide by 1000 to convert milliseconds to seconds
-    converted_data["timestamp"] = datetime.datetime.fromtimestamp(timestamp).isoformat()
-
+    converted_data["timestamp"] = int(timestamp * 1000)  # Multiply by 1000 to convert seconds to milliseconds
 
     # Extract location information
     location = jsonObject["location"].split("/")
